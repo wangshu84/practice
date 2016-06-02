@@ -1,6 +1,10 @@
-import urllib2
+#!/usr/bin/python
+import urllib2
 import os, sys, re
 from HTMLParser import HTMLParser
+from bs4 import BeautifulSoup
+#need to install the BeautifulSoup first using apt-get.
+
 
 
 #put full path for all .html files in the currentworkdir
@@ -41,6 +45,7 @@ for line in page.splitlines():
         # contain class="test cases"
 
 #use HTMLPraser, recognize the tag and extract the element?
+"""
 class HTMLParser.HTMLParser:
     def handle_starttag(self, tag, attrs):
         print "Encountered a start tag:", tag
@@ -52,7 +57,8 @@ class HTMLParser.HTMLParser:
         print "Encountered some data  :", data
 #tr #pt1.1, then starttag as <div class="testcase">
 #end tage is </div>
-
+"""
 
 #from testgroup/testcase, get the information for written into the excel
 #infromation that need to get from the lines{} directory: test set ID, test case name; status and actual results
+soup = BeautifulSoup(f, "html5lib")
